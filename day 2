@@ -1,0 +1,19 @@
+def password_feedback(password):
+    missing = []
+
+    if len(password) < 8:
+        missing.append("at least 8 characters")
+
+    if not any(char.isupper() for char in password):
+        missing.append("an uppercase letter")
+
+    if not any(char.islower() for char in password):
+        missing.append("a lowercase letter")
+
+    if not any(char.isdigit() for char in password):
+        missing.append("a number")
+
+    if not any(char in string.punctuation for char in password):
+        missing.append("a special character")
+
+    return missing
